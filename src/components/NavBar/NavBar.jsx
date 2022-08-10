@@ -23,6 +23,7 @@ import {
     ChevronRightIcon,
   } from '@chakra-ui/icons';
   import Rune from '../Imagenes/Rune.png';
+  import Cartwidget from '../Cartwidget/Cartwidget';
   export default function WithSubnavigation() {       
     const { isOpen, onToggle } = useDisclosure();
   
@@ -84,11 +85,12 @@ import {
               color={'white'}
               bg={'#ffcf00'}
               href={'#'}
-              _hover={{
-                bg: 'grey.300',
-              }}>
+              _hover={{bg:'#cc9900'}}
+              _active={{ bg:'#b28405'}}
+              >
               Sign Up
             </Button>
+            <Cartwidget/>
           </Stack>
         </Flex>
   
@@ -131,7 +133,8 @@ import {
                   bg={popoverContentBgColor}
                   p={4}
                   rounded={'xl'}
-                  minW={'sm'}>
+                  minW={'sm'}
+                  textAlign={'left'}>
                   <Stack>
                     {navItem.children.map((child) => (
                       <DesktopSubNav key={child.label} {...child} />
@@ -173,7 +176,7 @@ import {
             justify={'flex-end'}
             align={'center'}
             flex={1}>
-            <Icon color={'pink.400'} w={5} h={5} as={ChevronRightIcon} />
+            <Icon color={'#cc9900'} w={5} h={5} as={ChevronRightIcon} />
           </Flex>
         </Stack>
       </Link>
@@ -209,7 +212,7 @@ import {
           }}>
           <Text
             fontWeight={600}
-            color={useColorModeValue('gray.600', 'gray.200')}>
+            color={useColorModeValue('#3b3f49', 'gray.200')}>
             {label}
           </Text>
           {children && (
@@ -229,7 +232,7 @@ import {
             pl={4}
             borderLeft={1}
             borderStyle={'solid'}
-            borderColor={useColorModeValue('gray.200', 'gray.700')}
+            borderColor={useColorModeValue('gold', 'gray.700')}
             align={'start'}>
             {children &&
               children.map((child) => (
@@ -261,7 +264,7 @@ import {
         },
         {
           label:'Rings',
-          subLabel:'',
+          subLabel:'one ring to rule them all',
           href:'#',
         }
       ],
