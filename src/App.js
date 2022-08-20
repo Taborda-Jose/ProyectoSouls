@@ -2,7 +2,8 @@ import './App.css';
 import Navbar from './components/NavBar/NavBar.jsx';
 import { ChakraProvider } from '@chakra-ui/react';
 import ItemListContainer from './components/Itemlistcontainer/ItemListContainer';
-import ItemCount from './components/ItemCount/ItemCount';
+import { Flex } from '@chakra-ui/react';
+import Prueba2ConsumodeApi from './components/Pruebas/Prueba2ConsumodeApi';
 
 
 function App() {
@@ -11,9 +12,11 @@ function App() {
     <div className="App">
 
       <Navbar/>
-      <ItemListContainer greeting={'Hola soy un ItemlistContainer'}>
+      <Flex backgroundColor={'black'}>
+      <ItemListContainer>
       </ItemListContainer>
-      <div style={{margin:'auto'}}> <ItemCount/>   </div>
+      <Prueba2ConsumodeApi></Prueba2ConsumodeApi>
+      </Flex>
     </div>
     </ChakraProvider> 
   );
