@@ -5,7 +5,7 @@ import { Image } from '@chakra-ui/react'
 function Loader() {
   return (
     
-        <Image src={Rune}></Image>
+       <div style={{width:'100vw', height:'100vh',  display:'flex', justifyContent:'center', alignItems:'center', backgroundColor:'rgba(0,0,0,0.6)'}}><div className='App-logo' > <Image src={Rune}></Image> </div></div> 
     
   )
 }
