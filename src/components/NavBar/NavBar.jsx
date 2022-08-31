@@ -24,7 +24,7 @@ import {
 } from '@chakra-ui/icons';
 import Rune from '../Imagenes/Rune.png';
 import Cartwidget from '../Cartwidget/Cartwidget';
-
+import * as Router from 'react-router-dom';
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
 
@@ -76,8 +76,8 @@ export default function WithSubnavigation() {
             fontSize={'sm'}
             fontWeight={400}
             variant={'link'}
-            href={'#'}>
-            Sign In
+           >
+          <Router.Link to={'/Singin'}>Sign In</Router.Link>
           </Button>
           <Button
             display={{ base: 'none', md: 'inline-flex' }}
@@ -85,11 +85,10 @@ export default function WithSubnavigation() {
             fontWeight={600}
             color={'white'}
             bg={'#ffcf00'}
-            href={'#'}
             _hover={{ bg: '#cc9900' }}
             _active={{ bg: '#b28405' }}
           >
-            Sign Up
+            <Router.Link to={'/Singup'}>Sign Up</Router.Link>
           </Button>
           <Cartwidget />
         </Stack>
@@ -112,10 +111,11 @@ const DesktopNav = () => {
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
+            
             <PopoverTrigger>
-              <Link
+              <Text
                 p={2}
-                href={navItem.href ?? '#'}
+                
                 fontSize={'6sm'}
                 fontWeight={500}
                 color={linkColor}
@@ -123,8 +123,8 @@ const DesktopNav = () => {
                   textDecoration: 'none',
                   color: linkHoverColor,
                 }}>
-                {navItem.label}
-              </Link>
+                {<Router.Link to={`${navItem.href}`}>{navItem.label}</Router.Link>}
+              </Text>
             </PopoverTrigger>
 
             {navItem.children && (
@@ -152,13 +152,13 @@ const DesktopNav = () => {
 
 const DesktopSubNav = ({ label, href, subLabel }) => {
   return (
-    <Link
-      href={href}
+    <Text
       role={'group'}
       display={'block'}
       p={2}
       rounded={'md'}
       _hover={{ bg: useColorModeValue('gray.100', 'gray.900') }}>
+      <Router.Link to={href}>
       <Stack direction={'row'} align={'center'}>
         <Box>
           <Text
@@ -180,7 +180,8 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
           <Icon color={'#cc9900'} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
-    </Link>
+      </Router.Link>
+    </Text>
   );
 };
 
@@ -197,7 +198,7 @@ const MobileNav = () => {
   );
 };
 
-const MobileNavItem = ({ label, children, href }) => {
+const MobileNavItem = ({ label, children, }) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -205,7 +206,6 @@ const MobileNavItem = ({ label, children, href }) => {
       <Flex
         py={2}
         as={Link}
-        href={href ?? '#'}
         justify={'space-between'}
         align={'center'}
         _hover={{
@@ -237,9 +237,9 @@ const MobileNavItem = ({ label, children, href }) => {
           align={'start'}>
           {children &&
             children.map((child) => (
-              <Link key={child.label} py={2} href={child.href}>
-                {child.label}
-              </Link>
+              <Text key={child.label} py={2}>
+                <Router.Link to={child.href} >{child.label}</Router.Link>
+              </Text>
             ))}
         </Stack>
       </Collapse>
@@ -248,27 +248,63 @@ const MobileNavItem = ({ label, children, href }) => {
 };
 const NAV_ITEMS = [
   {
-    label: 'Home'
+    label: 'Home',
+    href: '/'
   },
   {
     label: 'Categories',
+    href: '/',
     children: [
       {
-        label: 'Weapons',
-        subLabel: 'Forge your pathway',
-        href: '#',
+        label: 'Axes',
+        subLabel: 'harass their defense',
+        href: '/item/category/Axe',
       },
       {
-        label: 'Shield',
-        subLabel: 'Still protect',
-        href: '#',
+        label: 'Bows',
+        subLabel: 'flechitas c: re de putos',
+        href: '/item/category/Bow',
       },
       {
-        label: 'Rings',
-        subLabel: 'one ring to rule them all',
-        href: '#',
-      }
+        label: 'Balista',
+        subLabel: 'flechitas c: re de putos',
+        href: '/item/category/Ballista',
+      },
+      {
+        label:'Claw',
+        subLabel:'Let them fear you',
+        href:'/item/category/Claw'
+      },
+      {
+        label:'Crossbow',
+        subLabel:'flechitas c: re de putos',
+        href:'/item/category/Crossbow'
+      },
+      { label:'Dagger',
+        subLabel:'Speed and letal',
+        href:'/item/category/Dagger'},
+
+        {label:'Colossal Sword',
+        subLabel:'1v1',
+        href:'/item/category/ColossalSword'},
+
+        {label:'Colossal Weapon',
+        subLabel:'A powerfull punch',
+        href:'/item/category/ColossalWeapon'},
+
+        {label:'Curved Sword',
+        subLabel:'Clean Cut',
+        href:'/item/category/CurvedSword'},
+
+        {label:'Curved Greatsword',
+        subLabel:'Streng and skills in one hit',
+        href:'/item/category/CurvedGreatsword'},
+
+        {label:'Fist',
+        subLabel:'if you wanna be one punchman',
+        href:'/item/category/Fist'}
     ],
+
   },
   {
     label: 'About Us',
