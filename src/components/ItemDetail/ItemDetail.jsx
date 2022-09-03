@@ -12,16 +12,24 @@ import {
     useColorModeValue,
     List,
     ListItem,
+    Button,
   } from '@chakra-ui/react';
 import ItemCount from '../ItemCount/ItemCount'
 import AtributesMap from '../Items/AtributesMap';
 import MapingAtackDetail from '../Items/MapingAtackDetail';
 import MapingDefenceDetail from '../Items/MapingDefenceDetail';
 import ScaleAtributeMap from '../Items/ScaleAtributeMap';
-import img from '../Imagenes/609173.jpg'
+import img from '../Imagenes/609173.jpg';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
   
   export default function Simple({Props}) {
     const {id, name, image, description, requiredAttributes, scalesWith, category, weight, attack, defence} = Props;
+    const [contador,setContador] = useState('')
+    function onAdd(count){
+      console.log(`Esta cantidad de items que la persona va a comprar ${count}`)
+      setContador(count)
+    }
     return (
     <Box backgroundImage={img} filter={{blur:'10em'}}>
       <Container maxW={'7xl'} bgColor={'rgba(255,255,255,0.7)'}>
@@ -128,7 +136,7 @@ import img from '../Imagenes/609173.jpg'
               </Box>
             </Stack>
               <Flex justifyContent={'center'} bgColor={'rgba(0,0,0,0.5)'} margin={'auto'} padding={'10px'}>
-              <ItemCount></ItemCount>
+              {contador?<Link to={'/cart'}><Button>Go to cart</Button></Link>:<ItemCount stock={5} initial={1} onAdd={onAdd}></ItemCount>}
               </Flex>
   
             <Stack direction="row" alignItems="center" justifyContent={'center'}>

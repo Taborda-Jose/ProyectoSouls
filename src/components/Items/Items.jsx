@@ -8,10 +8,12 @@ import {
   Badge,
   useColorModeValue,
   Text,
+  Button
 } from '@chakra-ui/react';
 import {Link} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWeightHanging } from '@fortawesome/free-solid-svg-icons'
+import { useState } from 'react';
 
 
 const data = {
@@ -21,6 +23,11 @@ const data = {
 };
 
 function Item({ Id, Name, Image, Description, ReqAtributes, ScaleAtributes, Categories, Weight }) {
+  const [contador,setContador]=useState()
+  function onAdd(count){
+    console.log('Felicitaciones')
+    setContador(count)
+  }
   return (
     <Flex p={30} alignItems="center" justifyContent="center" minW='350px'maxW='450px' margin='auto'>
       <Box
@@ -90,7 +97,7 @@ function Item({ Id, Name, Image, Description, ReqAtributes, ScaleAtributes, Cate
             </Box>
           </Flex>
         </Box>
-        <ItemCount stock={10} initial={1} onAdd={() => { console.log('felicitaciones') }}></ItemCount>
+        {contador?<Link to={'/cart'}><Button>Go to cart</Button></Link>:<ItemCount stock={5} initial={1} onAdd={onAdd}></ItemCount>}
 
       </Box>
     </Flex>

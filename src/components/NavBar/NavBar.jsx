@@ -90,7 +90,7 @@ export default function WithSubnavigation() {
           >
             <Router.Link to={'/Singup'}>Sign Up</Router.Link>
           </Button>
-          <Cartwidget />
+          <Router.Link to={'/cart'}><Cartwidget/></Router.Link>
         </Stack>
       </Flex>
 
