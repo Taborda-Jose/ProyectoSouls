@@ -14,6 +14,10 @@ import {Link} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWeightHanging } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
+import { useContext } from 'react';
+import { CartContext } from '../../Context/CartContext';
+import ScaleAtributeMap from './ScaleAtributeMap';
+import AtributesMap from './AtributesMap';
 
 
 const data = {
@@ -22,11 +26,15 @@ const data = {
 
 };
 
-function Item({ Id, Name, Image, Description, ReqAtributes, ScaleAtributes, Categories, Weight }) {
+function Item({Props}) {
+  const {id, name, image, description, requiredAttributes, scalesWith, category, weight, attack, defence} = Props;
   const [contador,setContador]=useState()
+  const {addItem} = useContext(CartContext)
+
   function onAdd(count){
-    console.log('Felicitaciones')
+    console.log(`Esta cantidad de items que la persona va a comprar ${count}`)
     setContador(count)
+    addItem(Props,count)
   }
   return (
     <Flex p={30} alignItems="center" justifyContent="center" minW='350px'maxW='450px' margin='auto'>
@@ -63,11 +71,11 @@ function Item({ Id, Name, Image, Description, ReqAtributes, ScaleAtributes, Cate
         <Box p="6">
           <Box d="flex" alignItems="baseline" paddingBottom={'2em'}>
             <Badge rounded="full" px="2" fontSize=".9em" colorScheme="yellow">
-            <Link to={`/item/${Id}`}>More of: {Name}</Link>
+            <Link to={`/item/${id}`}>More of: {name}</Link>
             </Badge>
           </Box>
         
-          <CardCarousel URL={Image} TEXT={Description} TITLE={Name} />
+          <CardCarousel URL={image} TEXT={description} TITLE={name} />
           <Flex mt="1" justifyContent="space-between" alignContent="center">
             <Box
               fontSize="2xl"
@@ -82,12 +90,12 @@ function Item({ Id, Name, Image, Description, ReqAtributes, ScaleAtributes, Cate
           <Flex justifyContent="space-between" alignContent="center" color={'silver'}>
             <Flex direction={'row'} justifyContent="space-between" width='250px' height='100px'>
               <Flex direction={'column'}>
-                {ReqAtributes}
-                <Text><FontAwesomeIcon icon={faWeightHanging} /> Weight: {Weight}</Text>
+                {requiredAttributes=== undefined?<></>:<AtributesMap ReqAtributesArr={requiredAttributes}></AtributesMap>}
+                <Text><FontAwesomeIcon icon={faWeightHanging} /> Weight: {weight}</Text>
               </Flex>
               <Flex direction={'column'}>
-                {ScaleAtributes}
-                <Text> Type: {Categories} </Text>
+                {scalesWith === undefined ?<></>:<ScaleAtributeMap ScaleAtributesArr={scalesWith}></ScaleAtributeMap>}
+                <Text> Type: {category} </Text>
               </Flex>
             </Flex>
             <Box fontSize="2xl" color={useColorModeValue('gray.800', 'white')}>

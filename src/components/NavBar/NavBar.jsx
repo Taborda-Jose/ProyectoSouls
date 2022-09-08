@@ -72,10 +72,10 @@ export default function WithSubnavigation() {
           direction={'row'}
           spacing={6}>
           <Button
-            as={'a'}
+            bgColor={'rgba(0,0,0,0.5)'}
             fontSize={'sm'}
             fontWeight={400}
-            variant={'link'}
+    
            >
           <Router.Link to={'/Singin'}>Sign In</Router.Link>
           </Button>
@@ -152,7 +152,7 @@ const DesktopNav = () => {
 
 const DesktopSubNav = ({ label, href, subLabel }) => {
   return (
-    <Text
+    <Flex
       role={'group'}
       display={'block'}
       p={2}
@@ -181,7 +181,7 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
         </Flex>
       </Stack>
       </Router.Link>
-    </Text>
+    </Flex>
   );
 };
 

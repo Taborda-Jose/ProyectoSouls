@@ -1,15 +1,18 @@
 import './App.css';
 import { ChakraProvider } from '@chakra-ui/react';
 import Rutas from './routes/Rutas';
+import CartProvider from './Context/CartContext';
 
 
 
 function App() {
   return (
     <ChakraProvider>
-    <div className="App">
+     <CartProvider>
+      <div className="App">
       <Rutas></Rutas>
-    </div>
+      </div>
+    </CartProvider> 
     </ChakraProvider> 
   );
 }

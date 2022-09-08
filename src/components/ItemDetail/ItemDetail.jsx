@@ -22,14 +22,20 @@ import ScaleAtributeMap from '../Items/ScaleAtributeMap';
 import img from '../Imagenes/609173.jpg';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-  
+import { useContext } from 'react';
+import { CartContext } from '../../Context/CartContext';
+
+
   export default function Simple({Props}) {
+    const {addItem} = useContext(CartContext)
     const {id, name, image, description, requiredAttributes, scalesWith, category, weight, attack, defence} = Props;
     const [contador,setContador] = useState('')
     function onAdd(count){
       console.log(`Esta cantidad de items que la persona va a comprar ${count}`)
       setContador(count)
+      addItem(Props,count)
     }
+
     return (
     <Box backgroundImage={img} filter={{blur:'10em'}}>
       <Container maxW={'7xl'} bgColor={'rgba(255,255,255,0.7)'}>
