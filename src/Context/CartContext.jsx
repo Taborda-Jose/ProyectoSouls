@@ -22,6 +22,7 @@ export default function CartProvider({children}) {
     let aux = items;
     let aux2 = items.find((element)=> element.id === itemId)
     let itemIndex = aux.indexOf(aux2)
+    console.log(itemIndex)
     aux.splice(itemIndex,1)
     setItems([...aux])
    }
@@ -31,6 +32,7 @@ export default function CartProvider({children}) {
    function isInCart(itemId){
     return items.find(element=>element.id === itemId)
    }
+
     return (
     <CartContext.Provider value={{addItem, removeItem, clear, isInCart, items}}>
         {children}

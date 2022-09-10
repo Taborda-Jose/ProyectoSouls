@@ -4,7 +4,7 @@ import { CartContext } from '../../Context/CartContext';
 import { Link } from 'react-router-dom';
 
 export default function SimpleCookiePreference({Props}) {
-   const {id, name,description,quantity} = Props;
+   const {id, name,description,quantity,price} = Props;
    const {removeItem} = useContext(CartContext)
   return (
     <Stack p="10" boxShadow="lg" m="4" borderRadius="sm" 
@@ -18,7 +18,7 @@ export default function SimpleCookiePreference({Props}) {
         <Text fontSize={{ base: 'sm' }} textAlign={'left'} maxW={'1xl'} color={'gray.900'} fontWeight={'bold'}>
             {description} 
             <Text padding={'5px'} fontWeight={'bold'} color={'yellow.600'}>
-                s$c 540
+                s$c {price}
             </Text>
         </Text>
 
@@ -27,7 +27,7 @@ export default function SimpleCookiePreference({Props}) {
             X{quantity} Buy More
           </Button>
          </Link> 
-          <Button colorScheme="red" onClick={removeItem}>Cancel</Button>
+          <Button colorScheme="red" onClick={()=>removeItem(id)}>Cancel</Button>
         </Stack>
       </Stack>
     </Stack>

@@ -6,6 +6,7 @@ import NavBar from '../components/NavBar/NavBar'
 import SingIn from '../components/Login/SingIn'
 import SingUp from '../components/Login/SingUp'
 import Cart from '../components/Cart/Cart';
+import Checkout from '../Checkout/Checkout';
 
 function Rutas() {
   return (
@@ -19,6 +20,7 @@ function Rutas() {
             <Route path='/Singin'element={<SingIn></SingIn>}></Route>
             <Route path='/Singup'element={<SingUp></SingUp>}></Route>
             <Route path='/cart' element={<Cart></Cart>}></Route>
+            <Route path='/Checkout' element={<Checkout></Checkout>}></Route>
         </Routes>
 
     </BrowserRouter>

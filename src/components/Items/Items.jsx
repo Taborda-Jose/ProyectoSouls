@@ -21,13 +21,11 @@ import AtributesMap from './AtributesMap';
 
 
 const data = {
-  Stock: 10,
-  price: 4.5,
-
+ isStock:'true'
 };
 
 function Item({Props}) {
-  const {id, name, image, description, requiredAttributes, scalesWith, category, weight, attack, defence} = Props;
+  const {id, name, image, description, requiredAttributes, scalesWith, category, weight, attack, defence, price, stock} = Props;
   const [contador,setContador]=useState()
   const {addItem} = useContext(CartContext)
 
@@ -100,12 +98,12 @@ function Item({Props}) {
             </Flex>
             <Box fontSize="2xl" color={useColorModeValue('gray.800', 'white')}>
               <Box as="span" color={'gold'} fontSize="lg">
-                <Text color={'gold'}>S$C {data.price.toFixed(2)}</Text>
+                <Text color={'gold'}>S$C {price.toFixed(2)}</Text>
               </Box>
             </Box>
           </Flex>
         </Box>
-        {contador?<Link to={'/cart'}><Button>Go to cart</Button></Link>:<ItemCount stock={5} initial={1} onAdd={onAdd}></ItemCount>}
+        {contador?<Link to={'/cart'}><Button>Go to cart</Button></Link>:<ItemCount stock={stock} initial={1} onAdd={onAdd}></ItemCount>}
 
       </Box>
     </Flex>

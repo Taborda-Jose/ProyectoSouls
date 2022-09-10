@@ -15,6 +15,7 @@ export default function ItemListContainer() {
       try{
           const weapons = await axios.get('https://eldenring.fanapis.com/api/weapons?limit=120')
           const detailsWeapons= await weapons.data
+          detailsWeapons.data.map((item)=>{item.price = Math.floor(Math.random()*(5-1)+1); item.stock = 10})
           let categoryFilter = []
           
           categoryFilter = category?categoryFilter = detailsWeapons.data.filter(items =>items.category.replace(' ','')===category):categoryFilter=detailsWeapons.data
