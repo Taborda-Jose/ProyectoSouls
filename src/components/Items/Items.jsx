@@ -98,7 +98,8 @@ function Item({Props}) {
             </Flex>
             <Box fontSize="2xl" color={useColorModeValue('gray.800', 'white')}>
               <Box as="span" color={'gold'} fontSize="lg">
-                <Text color={'gold'}>S$C {price.toFixed(2)}</Text>
+                <Text color={'gold'}>S$C {price
+                }</Text>
               </Box>
             </Box>
           </Flex>

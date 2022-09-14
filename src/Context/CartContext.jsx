@@ -32,7 +32,6 @@ export default function CartProvider({children}) {
    function isInCart(itemId){
     return items.find(element=>element.id === itemId)
    }
-
     return (
     <CartContext.Provider value={{addItem, removeItem, clear, isInCart, items}}>
         {children}

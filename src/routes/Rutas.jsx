@@ -8,6 +8,7 @@ import SingUp from '../components/Login/SingUp'
 import Cart from '../components/Cart/Cart';
 import Checkout from '../Checkout/Checkout';
 
+
 function Rutas() {
   return (
     <BrowserRouter>
@@ -22,7 +23,6 @@ function Rutas() {
             <Route path='/cart' element={<Cart></Cart>}></Route>
             <Route path='/Checkout' element={<Checkout></Checkout>}></Route>
         </Routes>
-
     </BrowserRouter>
 
   )

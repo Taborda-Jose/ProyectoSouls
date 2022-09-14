@@ -29,7 +29,7 @@ export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box>
+    <Box position={'fixed'} width={'100%'} zIndex={'100'}>
       <Flex
         bg={useColorModeValue('rgb(50,50,50)', 'gray.800')}
         color={useColorModeValue('#ffcf00', 'white')}
@@ -109,10 +109,10 @@ const DesktopNav = () => {
   return (
     <Stack direction={'row'} spacing={4}>
       {NAV_ITEMS.map((navItem) => (
-        <Box key={navItem.label}>
-          <Popover trigger={'hover'} placement={'bottom-start'}>
+        <Box key={navItem.label} >
+          <Popover trigger={'hover'} placement={'bottom-start'} >
             
-            <PopoverTrigger>
+            <PopoverTrigger >
               <Text
                 p={2}
                 
@@ -135,7 +135,8 @@ const DesktopNav = () => {
                 p={4}
                 rounded={'xl'}
                 minW={'sm'}
-                textAlign={'left'}>
+                textAlign={'left'}
+                >
                 <Stack>
                   {navItem.children.map((child) => (
                     <DesktopSubNav key={child.label} {...child} />
@@ -190,7 +191,8 @@ const MobileNav = () => {
     <Stack
       bg={useColorModeValue('white', 'gray.800')}
       p={4}
-      display={{ md: 'none' }}>
+      display={{ md: 'none' }}
+      >
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}

@@ -27,13 +27,13 @@ import { CartContext } from '../../Context/CartContext';
 
 
   export default function Simple({Props}) {
-    const {addItem} = useContext(CartContext)
+    const {addItem,itemQuantityF} = useContext(CartContext)
     const {id, name, image, description, requiredAttributes, scalesWith, category, weight, attack, defence} = Props;
     const [contador,setContador] = useState('')
     function onAdd(count){
-      console.log(`Esta cantidad de items que la persona va a comprar ${count}`)
       setContador(count)
       addItem(Props,count)
+      itemQuantityF()
     }
 
     return (
