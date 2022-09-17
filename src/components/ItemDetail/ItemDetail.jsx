@@ -38,7 +38,7 @@ import { CartContext } from '../../Context/CartContext';
 
     return (
     <Box backgroundImage={img} filter={{blur:'10em'}}>
-      <Container maxW={'7xl'} bgColor={'rgba(255,255,255,0.7)'}>
+      <Container maxW={'7xl'} bgColor={'rgba(255,255,255,0.7)'} >
         <SimpleGrid
           columns={{ base: 1, lg: 2 }}
           spacing={{ base: 8, md: 10 }}

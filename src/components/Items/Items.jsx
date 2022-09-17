@@ -8,7 +8,7 @@ import {
   Badge,
   useColorModeValue,
   Text,
-  Button
+  Button,
 } from '@chakra-ui/react';
 import {Link} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -37,7 +37,7 @@ function Item({Props}) {
   return (
     <Flex p={30} alignItems="center" justifyContent="center" minW='350px'maxW='450px' margin='auto'>
       <Box
-        minW='350px'
+        minW='300px'
         maxW='1em'
         height='850px'
         bg={useColorModeValue('#1f2424', 'gray.800')}
@@ -69,10 +69,9 @@ function Item({Props}) {
         <Box p="6">
           <Box d="flex" alignItems="baseline" paddingBottom={'2em'}>
             <Badge rounded="full" px="2" fontSize=".9em" colorScheme="yellow">
-            <Link to={`/item/${id}`}>More of: {name}</Link>
+            <Link to={`/item/${id}`}>{name}</Link>
             </Badge>
           </Box>
-        
           <CardCarousel URL={image} TEXT={description} TITLE={name} />
           <Flex mt="1" justifyContent="space-between" alignContent="center">
             <Box

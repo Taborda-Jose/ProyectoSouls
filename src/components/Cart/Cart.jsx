@@ -13,7 +13,7 @@ function Cart() {
     
     
   return (
-    <Flex bgImage={image} bgAttachment={'fixed'} minHeight='100vh' justifyContent='center' justifyItems='center' >
+    <Flex bgImage={image} bgAttachment={'fixed'} minHeight='100vh' justifyContent='center' justifyItems='center' position={'relative'} top={'5em'}>
         <Flex width='75%' borderRight={'2px solid black'} borderLeft={'2px solid black'} flexDir='column'
             backgroundImage={'https://wallpaperaccess.com/full/1812589.jpg'} 
             bgRepeat={'no-repeat'} bgSize={'cover'} bgPos={'center'}
