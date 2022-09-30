@@ -13,7 +13,7 @@ import {collection, addDoc} from 'firebase/firestore'
 
 function Checkout() {
 
-    const {items} = useContext(CartContext)
+    const {items,clear} = useContext(CartContext)
     const [formulario,setFormulario]=useState(
         { buyer:{
              Fname:'',
@@ -37,11 +37,17 @@ function Checkout() {
     }
 
     const setInFirebase = async(order)=>{
-      try { 
-        const col = collection(db,'orders')
-        const createOrder = await addDoc(col,order)
-        alert(`Su codigo orden ${createOrder.id} se generó correctamente`)
-      } catch (error) {
+      if(order.buyer.Fname===''||order.buyer.email===''||order.buyer.Lname===''||order.buyer.phoneNumber===''){
+        alert('Debe completar los campos')
+      }
+      else{
+        try { 
+          const col = collection(db,'orders')
+          const createOrder = await addDoc(col,order)
+          alert(`Su codigo orden ${createOrder.id} se generó correctamente`)
+          clear()
+        } catch (error) {
+        }
       }
     }
   return (
