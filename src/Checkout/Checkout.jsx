@@ -40,14 +40,13 @@ function Checkout() {
       try { 
         const col = collection(db,'orders')
         const createOrder = await addDoc(col,order)
-        alert(`Su orden ${createOrder.id} se generó correctamente`)
+        alert(`Su codigo orden ${createOrder.id} se generó correctamente`)
       } catch (error) {
-        
       }
     }
   return (
-    <Flex justifyContent={'center'} position={'relative'} top={'5em'} flexDir={'column'}>
-        <Flex bgColor={'gray.800'}>{items===undefined||items.length===0?<Link to={'/'}><Button>Back to shop?</Button></Link>:<ul>{items.map((e,index)=><CartCard Props={e} key={index}></CartCard>)}</ul>}</Flex>
+    <Flex justifyContent={'center'} position={'relative'} top={'5em'} flexDir={'column'} minH={'95vh'} backgroundColor={'gray.800'}>
+        <Flex bgColor={'gray.800'} justifyContent={'center'}>{items===undefined||items.length===0?<Flex><Link to={'/'}><Button>Back to shop?</Button></Link></Flex>:<ul>{items.map((e,index)=><CartCard Props={e} key={index}></CartCard>)}</ul>}</Flex>
         <Flex>
         <Flex
         minH={'20vh'}
@@ -130,7 +129,7 @@ function Checkout() {
         </Stack>
       </Flex>
     </Flex>
-    </Flex>
+</Flex>
   )
 }
 

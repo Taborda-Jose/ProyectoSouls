@@ -30,7 +30,6 @@ function Item({Props}) {
   const {addItem} = useContext(CartContext)
 
   function onAdd(count){
-    console.log(`Esta cantidad de items que la persona va a comprar ${count}`)
     setContador(count)
     addItem(Props,count)
   }
@@ -47,7 +46,6 @@ function Item({Props}) {
         shadow="lg"
         position="relative"
         >
-
         {data.isStock && (
           <Circle
             size="10px"
@@ -69,7 +67,7 @@ function Item({Props}) {
         <Box p="6">
           <Box d="flex" alignItems="baseline" paddingBottom={'2em'}>
             <Badge rounded="full" px="2" fontSize=".9em" colorScheme="yellow">
-            <Link to={`/item/${id}`}>{name}</Link>
+            <Link to={`/item/${id}`}>View: {name}</Link>
             </Badge>
           </Box>
           <CardCarousel URL={image} TEXT={description} TITLE={name} />
@@ -79,7 +77,6 @@ function Item({Props}) {
               fontWeight="semibold"
               as="h4"
               lineHeight="tight"
-              /*isTruncated*/
               color="gold">
               Basic Stadistic:
             </Box>

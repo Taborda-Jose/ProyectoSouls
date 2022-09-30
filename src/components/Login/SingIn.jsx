@@ -24,38 +24,38 @@ import Image from '../Imagenes/609173.jpg'
         bgImage={Image}>
         <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
           <Stack align={'center'}>
-            <Heading fontSize={'4xl'}>Sign in to your account</Heading>
-            <Text fontSize={'lg'} color={'gray.600'}>
-              to enjoy all of our cool <Link color={'blue.400'}>features</Link> ✌️
+            <Heading fontSize={'4xl'} color={'gold'}>Sign in to your account</Heading>
+            <Text fontSize={'lg'} color={'gold'}>
+              to enjoy all of our cool <Link color={'gray.500'}>features</Link> 
             </Text>
           </Stack>
           <Box
             rounded={'lg'}
-            bg={useColorModeValue('white', 'gray.700')}
+            bg={useColorModeValue('rgba(255,255,255,0.5)', 'gray.700')}
             boxShadow={'lg'}
             p={8}>
             <Stack spacing={4}>
               <FormControl id="email">
                 <FormLabel>Email address</FormLabel>
-                <Input type="email" />
+                <Input type="email" focusBorderColor='gold'/>
               </FormControl>
               <FormControl id="password">
                 <FormLabel>Password</FormLabel>
-                <Input type="password" />
+                <Input type="password" focusBorderColor='gold'/>
               </FormControl>
               <Stack spacing={10}>
                 <Stack
                   direction={{ base: 'column', sm: 'row' }}
                   align={'start'}
                   justify={'space-between'}>
-                  <Checkbox>Remember me</Checkbox>
-                  <Link color={'blue.400'}>Forgot password?</Link>
+                  <Checkbox colorScheme='yellow' iconColor='gray.700'>Remember me</Checkbox>
+                  <Link color={'gray.700'}>Forgot password?</Link>
                 </Stack>
                 <Button
-                  bg={'blue.400'}
+                  bg={'gold'}
                   color={'white'}
                   _hover={{
-                    bg: 'blue.500',
+                    bg: 'yellow.700',
                   }}>
                   Sign in
                 </Button>

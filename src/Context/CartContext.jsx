@@ -1,4 +1,3 @@
-import { render } from '@testing-library/react';
 import React from 'react'
 import { createContext } from 'react'
 import { useState } from 'react';
@@ -22,7 +21,6 @@ export default function CartProvider({children}) {
     let aux = items;
     let aux2 = items.find((element)=> element.id === itemId)
     let itemIndex = aux.indexOf(aux2)
-    console.log(itemIndex)
     aux.splice(itemIndex,1)
     setItems([...aux])
    }

@@ -308,8 +308,4 @@ const NAV_ITEMS = [
     ],
 
   },
-  {
-    label: 'About Us',
-    href: '#',
-  },
 ];

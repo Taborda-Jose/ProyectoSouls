@@ -27,13 +27,12 @@ import { CartContext } from '../../Context/CartContext';
 
 
   export default function Simple({Props}) {
-    const {addItem,itemQuantityF} = useContext(CartContext)
-    const {id, name, image, description, requiredAttributes, scalesWith, category, weight, attack, defence} = Props;
+    const {addItem} = useContext(CartContext)
+    const {id, name, image, description, requiredAttributes, scalesWith, category, weight, attack, defence,stock} = Props;
     const [contador,setContador] = useState('')
     function onAdd(count){
       setContador(count)
       addItem(Props,count)
-      itemQuantityF()
     }
 
     return (
@@ -100,11 +99,9 @@ import { CartContext } from '../../Context/CartContext';
   
                 <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
                   <List spacing={2}>
-                    aca escalados
                   {scalesWith === undefined ?<></>:<ScaleAtributeMap ScaleAtributesArr={scalesWith}></ScaleAtributeMap>}
                   </List>
                   <List spacing={2}>
-                    aca requiremientos
                     {requiredAttributes=== undefined?<></>:<AtributesMap ReqAtributesArr={requiredAttributes}></AtributesMap>}
                   </List>
                 </SimpleGrid>
@@ -142,7 +139,7 @@ import { CartContext } from '../../Context/CartContext';
               </Box>
             </Stack>
               <Flex justifyContent={'center'} bgColor={'rgba(0,0,0,0.5)'} margin={'auto'} padding={'10px'}>
-              {contador?<Link to={'/cart'}><Button>Go to cart</Button></Link>:<ItemCount stock={5} initial={1} onAdd={onAdd}></ItemCount>}
+              {contador?<Link to={'/cart'}><Button>Go to cart</Button></Link>:<ItemCount stock={stock} initial={1} onAdd={onAdd}></ItemCount>}
               </Flex>
   
             <Stack direction="row" alignItems="center" justifyContent={'center'}>
