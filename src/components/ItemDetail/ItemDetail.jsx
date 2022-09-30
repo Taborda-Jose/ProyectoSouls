@@ -28,7 +28,7 @@ import { CartContext } from '../../Context/CartContext';
 
   export default function Simple({Props}) {
     const {addItem} = useContext(CartContext)
-    const {id, name, image, description, requiredAttributes, scalesWith, category, weight, attack, defence,stock} = Props;
+    const {name, image, description, requiredAttributes, scalesWith, category, weight, attack, defence,stock} = Props;
     const [contador,setContador] = useState('')
     function onAdd(count){
       setContador(count)

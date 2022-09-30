@@ -25,7 +25,7 @@ const data = {
 };
 
 function Item({Props}) {
-  const {id, name, image, description, requiredAttributes, scalesWith, category, weight, attack, defence, price, stock} = Props;
+  const {id, name, image, description, requiredAttributes, scalesWith, category, weight, price, stock} = Props;
   const [contador,setContador]=useState()
   const {addItem} = useContext(CartContext)
 
