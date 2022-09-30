@@ -2,7 +2,7 @@ import { Flex, Button } from '@chakra-ui/react'
 import React from 'react'
 import image from '../Imagenes/609173.jpg'
 import { CartContext } from '../../Context/CartContext'
-import { useContext,useEffect } from 'react'
+import { useContext,} from 'react'
 import { Link } from 'react-router-dom'
 import CartCard from '../Cart/CartCard'
 
@@ -21,8 +21,12 @@ function Cart() {
             backdropContrast={'500%'}
             backdropBlur={'100%'}
             brightness={'-100%'}>
-            {items===undefined||items.length===0?<Flex textAlign={'center'} justifyContent={'center'} margin='15px' minH={'80vh'}><Flex><Button><Link to={'/'}>Back to shop?</Link></Button></Flex></Flex>:<Flex minH={'80vh'}><ul>{items.map((e,index)=><CartCard Props={e} key={index}></CartCard>)}</ul></Flex >}
-            <Flex justifyContent={'center'}><Link to={'/Checkout'}>{items.reduce((pv,cv)=> pv+(cv.price*cv.quantity),0)===0?<Button disabled padding={'10px'}margin={'10px'} bgColor={'gold'} _hover={'yellow.400'}>Buy it: S$C {items.reduce((pv,cv)=> pv+(cv.price*cv.quantity),0)}</Button>:<Button padding={'10px'}margin={'10px'} bgColor={'gold'} _hover={'yellow.400'}>Buy it: S$C {items.reduce((pv,cv)=> pv+(cv.price*cv.quantity),0)}</Button>}</Link><Button padding={'10px'}margin={'10px'} onClick={clear} bgColor={''}>Clear</Button></Flex>
+            {items===undefined||items.length===0?
+            <Flex textAlign={'center'} justifyContent={'center'} margin='15px' minH={'80vh'}><Flex><Button><Link to={'/'}>Back to shop?</Link></Button></Flex></Flex>:
+            <Flex minH={'80vh'}><ul>{items.map((e,index)=><li key={index}><CartCard Props={e}></CartCard></li>)}</ul></Flex >}
+            <Flex justifyContent={'center'}>{items.reduce((pv,cv)=> pv+(cv.price*cv.quantity),0)===0?
+            <Button disabled padding={'10px'}margin={'10px'} bgColor={'gold'}>Buy it: S$C {items.reduce((pv,cv)=> pv+(cv.price*cv.quantity),0)}</Button>
+            :<Button padding={'10px'}margin={'10px'} bgColor={'gold'}><Link to={'/Checkout'}> Buy it: S$C {items.reduce((pv,cv)=> pv+(cv.price*cv.quantity),0)}</Link></Button>}<Button padding={'10px'}margin={'10px'} onClick={clear} bgColor={''}>Clear</Button></Flex>
         </Flex>
     </Flex>
   )
