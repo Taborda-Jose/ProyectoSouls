@@ -264,12 +264,12 @@ const NAV_ITEMS = [
       },
       {
         label: 'Bows',
-        subLabel: 'flechitas c: re de putos',
+        subLabel: '',
         href: '/item/category/Bow',
       },
       {
         label: 'Balista',
-        subLabel: 'flechitas c: re de putos',
+        subLabel: '',
         href: '/item/category/Ballista',
       },
       {
@@ -279,7 +279,7 @@ const NAV_ITEMS = [
       },
       {
         label:'Crossbow',
-        subLabel:'flechitas c: re de putos',
+        subLabel:'',
         href:'/item/category/Crossbow'
       },
       { label:'Dagger',
